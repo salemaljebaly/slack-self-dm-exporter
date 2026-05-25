@@ -87,9 +87,8 @@ Post only a few newest messages for formatting validation:
 python google_chat_webhook_importer.py --limit 3
 ```
 
-The exporter stores messages newest-first. The Google Chat test importer selects
-the newest messages, then posts that selected batch oldest-to-newest so the most
-recent Slack note appears as the most recent Google Chat message.
+The exporter stores messages newest-first. The Google Chat test importer posts
+oldest-to-newest so the Google Chat Space keeps the original Slack chronology.
 
 The webhook import posts as the webhook app. The original Slack date is included
 inside each message body.
