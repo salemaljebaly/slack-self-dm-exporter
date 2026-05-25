@@ -88,7 +88,10 @@ def select_messages(messages: List[Dict[str, Any]], limit: int, offset: int) -> 
         raise ValueError("--limit must be at least 1")
     if offset < 0:
         raise ValueError("--offset must be 0 or greater")
-    return messages[offset : offset + limit]
+    # The export is newest-first, but Google Chat orders by post time. Reverse
+    # the selected batch so the newest Slack note is posted last and appears
+    # newest in the Space.
+    return list(reversed(messages[offset : offset + limit]))
 
 
 def main() -> int:
