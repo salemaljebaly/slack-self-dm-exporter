@@ -81,7 +81,7 @@ Add the webhook URL to `.env`:
 GOOGLE_CHAT_WEBHOOK_URL=https://chat.googleapis.com/...
 ```
 
-Post only a few newest messages for formatting validation:
+Post only a few oldest messages for formatting validation:
 
 ```bash
 python google_chat_webhook_importer.py --limit 3
