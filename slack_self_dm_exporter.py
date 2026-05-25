@@ -140,7 +140,7 @@ class SlackSelfDMExporter:
         finally:
             spinner.stop()
 
-        messages.sort(key=lambda item: float(item.get("ts", 0)))
+        messages.sort(key=lambda item: float(item.get("ts", 0)), reverse=True)
         return messages
 
     def export(self) -> Dict[str, Any]:
