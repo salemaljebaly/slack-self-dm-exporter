@@ -41,3 +41,17 @@ Each run writes timestamped files and updates latest aliases:
 - `self_dm_latest.json`
 - `self_dm_latest.txt`
 - `manifest.json`
+
+## Google Chat Webhook Test
+
+For one private Google Chat Space, create an incoming webhook and add it to
+`.env` as `GOOGLE_CHAT_WEBHOOK_URL`.
+
+Post only a few newest messages for formatting validation:
+
+```bash
+python google_chat_webhook_importer.py --limit 3
+```
+
+The webhook import posts as the webhook app. The original Slack date is included
+inside each message body.
