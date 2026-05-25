@@ -92,3 +92,12 @@ oldest-to-newest so the Google Chat Space keeps the original Slack chronology.
 
 The webhook import posts as the webhook app. The original Slack date is included
 inside each message body.
+
+## Rollout Notes
+
+- Slack API limits are mainly per API method, per app, per workspace. If many
+  employees use the same Slack app at the same time, some exports may receive
+  `429` rate-limit responses. Wait and rerun later.
+- Google Chat incoming webhooks are limited per Space. Keep `--delay` at `1.0`
+  second or higher; `1.2` is safer for larger imports.
+- For a company rollout, start with 5-10 users, then run the rest in batches.
